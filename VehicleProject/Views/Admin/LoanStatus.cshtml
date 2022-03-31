@@ -1,0 +1,62 @@
+﻿@model IEnumerable<VehicleProject.Models.Loan>
+
+@{
+    ViewBag.Title = "LoanStatus";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>LoanStatus</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleBrand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OnRoadPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleBrand)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OnRoadPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+
+        
+        <td>
+            @Html.ActionLink("Approve", "Edit", new { id=item.LoanID }) |
+            @Html.ActionLink("Decline", "Decline", new { id=item.LoanID }) |
+           
+        </td>
+    </tr>
+}
+
+</table>
+
+

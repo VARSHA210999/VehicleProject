@@ -1,0 +1,44 @@
+﻿@model VehicleProject.Models.Admin
+
+@{
+    ViewBag.Title = "AdminLogin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AdminLogin</h2>
+
+@using (Html.BeginForm("AdminLogin", "Admin", FormMethod.Post))
+{
+<fieldset>
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <table>
+        <tr>
+            <td>@Html.LabelFor(a => a.UserName)</td>
+            <td>@Html.TextBoxFor(a => a.UserName)</td>
+            <td>@Html.ValidationMessageFor(a => a.UserName)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(a => a.Passsword)</td>
+            <td>@Html.PasswordFor(a => a.Passsword)</td>
+            <td>@Html.ValidationMessageFor(a => a.Passsword)</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" style="background-color:green;color:white;width:150px; height:40px" value="Login" /></td>
+            <td></td>
+        </tr>
+    </table>
+    <div>
+        <h3 style="color:green">@ViewBag.Message</h3>
+    </div>
+    <div>
+        @Html.ActionLink("Back to List", "AdminMenu")
+    </div>
+
+
+
+</fieldset>
+}

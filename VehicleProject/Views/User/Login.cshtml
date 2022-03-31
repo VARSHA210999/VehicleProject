@@ -1,0 +1,45 @@
+﻿@model VehicleProject.Models.Customers
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Login", "User", FormMethod.Post))
+{
+<fieldset>
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <table>
+        <tr>
+            <td>@Html.LabelFor(a => a.Email)</td>
+            <td>@Html.TextBoxFor(a => a.Email)</td>
+            <td>@Html.ValidationMessageFor(a => a.Email)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(a => a.Password)</td>
+            <td>@Html.PasswordFor(a => a.Password)</td>
+            <td>@Html.ValidationMessageFor(a => a.Password)</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" style="background-color: #008CBA" value="Login" /></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <div>
+        <h3 style="color:blue">@ViewBag.Message</h3>
+    </div>
+
+    
+
+</fieldset>
+}
+
+
+
